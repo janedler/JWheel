@@ -1,0 +1,60 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#e7e7e7">
+
+        <RelativeLayout
+            android:id="@+id/wheel_view_top"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp">
+
+            <TextView
+                android:id="@+id/backImg"
+                android:layout_width="50dp"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="#222735"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/titleTv"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:textColor="#222735"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/sureImg"
+                android:layout_width="50dp"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="#222735"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/wheel_view_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/wheel_view_top"
+            android:orientation="horizontal"
+            android:background="#000000">
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

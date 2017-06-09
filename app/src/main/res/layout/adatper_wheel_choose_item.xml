@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="30dp" >
+
+    <TextView
+            android:id="@+id/adapterItemTv"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:cacheColorHint="#00FFFFFF"
+            android:divider="#FFFFFF"
+            android:layout_centerInParent="true"
+            android:textColor="#222735"
+            android:text="腾讯上海分公司"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            />
+
+</RelativeLayout>
