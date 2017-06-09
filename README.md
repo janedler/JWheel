@@ -1,9 +1,9 @@
 # JWheel
-### 轮子控件
+### 轮子控件 
 ![](https://github.com/janedler/JWheel/raw/master/screen_1.png) 
 
-#### 使用方法
-##### 1.继承WheelTree
+#### 自定义扩展方法 具体可以参考RegionTree、CustomTree
+##### 继承WheelTree
 ```java
 /**
      * 构建轮子树的结构 必须实现
@@ -28,7 +28,10 @@
     public abstract String reslultSure(WheelNode lastNode);
 
 ```
-##### 2.通过WheelUtil工具类调用轮子控件
+
+#### 使用方法 具体可以参考MainActivity
+
+##### 1.通过WheelUtil工具类调用轮子控件
 ```java
 WheelUtil wheel = new WheelUtil(this, new WheelUtil.WeelUtilCallBack() {
            //取消
@@ -47,7 +50,7 @@ WheelUtil wheel = new WheelUtil(this, new WheelUtil.WeelUtilCallBack() {
             }
         });
 ```
-##### 3.关闭轮子控件
+##### 2.关闭轮子控件
 ```java
 wheel.dismiss();
 ```
