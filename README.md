@@ -1,8 +1,5 @@
 # JTime
 ### 轮子控件<br>
-
-![](https://github.com/janedler/JWheel/raw/master/screen_1.jpg) 
-
 #### 使用方法
 ##### 在启动页请先调用 
 ```java
