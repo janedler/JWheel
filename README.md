@@ -54,3 +54,11 @@ WheelUtil wheel = new WheelUtil(this, new WheelUtil.WeelUtilCallBack() {
 ```java
 wheel.dismiss();
 ```
+##### 3.轮子定位 (api定位，可以进行扩展) 
+```java
+/**
+     * @param col 列
+     * @param row 行
+     */
+wheel.selectItem(int row, int col);
+```
