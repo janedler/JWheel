@@ -10,6 +10,7 @@
             android:layout_height="50dp"
             android:cacheColorHint="#00FFFFFF"
             android:divider="#FFFFFF"
+            android:ellipsize="middle"
             android:layout_centerInParent="true"
             android:textColor="#222735"
             android:text="腾讯上海分公司"

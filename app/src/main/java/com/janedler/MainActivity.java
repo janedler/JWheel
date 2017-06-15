@@ -15,6 +15,7 @@ import com.janedler.util.WheelUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
@@ -100,19 +101,19 @@ public class MainActivity extends AppCompatActivity {
 
 
     private static String[] mProvinceNames = {
-            "北京市",
+            "北京市山东省山东省山东省山东省山东省山东省山东省山东省",
             "广东省",
             "山东省",
     };
 
     private static String[][] mCityNames = {
-            {"朝阳区","海淀区","通州区","房山区","丰台区","昌平区"},
+            {"朝阳区朝阳区朝阳区朝阳区朝阳区朝阳区朝阳区朝阳区","海淀区","通州区","房山区","丰台区","昌平区"},
             {"东莞市","广州市","中山市","深圳市","惠州市","江门市","珠海市"},
             {"济南市","青岛市","临沂市"}
     };
 
     private static String[] mCountNames = {
-            "城区","非城区"
+            "城区城区城区城区城区城区城区","非城区"
     };
 
 
@@ -137,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
                 for (int k = 0; k < mCountNames.length; k++) {
                     County county = new County();
                     county.countyId  = System.currentTimeMillis();
-                    county.countyName = mCountNames[k];
+                    county.countyName = mCountNames[k]+ new Random().nextInt(30);
                     county.countyCode = String.valueOf(UUID.randomUUID());
                     counties.add(county);
                 }

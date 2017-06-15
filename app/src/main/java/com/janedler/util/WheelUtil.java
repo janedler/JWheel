@@ -2,6 +2,7 @@ package com.janedler.util;
 
 import android.app.Activity;
 import android.graphics.drawable.ColorDrawable;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -115,9 +116,12 @@ public class WheelUtil {
     }
 
 
+
+
+
     private void renderJWheelView(final List<WheelNode> nodes, int index) {
         if (nodes == null || nodes.size() <= 0) return;
-        WheelView wheelView = buildWheelView(nodes, null);
+        final WheelView wheelView = buildWheelView(nodes, null);
         wheelView.setTag(index);
         wheelView.addChangingListener(new OnWheelChangedListener() {
             @Override
@@ -126,13 +130,17 @@ public class WheelUtil {
                 if (Integer.parseInt(wheel.getTag().toString()) == (childCount - 1)) {
                     return;
                 }
-                WheelView nextWheelView = (WheelView) mWheelViewContent.getChildAt(Integer.parseInt(wheel.getTag().toString()) + 1);
-                WheelChooseAdapter adapter = ((WheelChooseAdapter) nextWheelView.getViewAdapter());
-                if (newValue >= nodes.size()) {
+                WheelChooseAdapter adapter = (WheelChooseAdapter) wheelView.getViewAdapter();
+                WheelNode wheelNode = adapter.getItemText(newValue);
+                List<WheelNode> childNodes = wheelNode.getChildNodes();
+                if (childNodes == null || childNodes.size()<= 0){
                     return;
                 }
-                adapter.setData(nodes.get(newValue).getChildNodes(), 0);
+                WheelView nextWheelView = (WheelView) mWheelViewContent.getChildAt(Integer.parseInt(wheel.getTag().toString()) + 1);
+                WheelChooseAdapter nextWheelAdapter = ((WheelChooseAdapter) nextWheelView.getViewAdapter());
+                nextWheelAdapter.setData(childNodes, 0);
                 nextWheelView.setCurrentItem(0);
+                nextWheelView.notifyChangingListeners(0, 0);
             }
         });
         mWheelViewContent.addView(wheelView);
