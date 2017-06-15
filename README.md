@@ -1,27 +1,64 @@
-# JTime
-### 轮子控件<br>
+# JWheel
+### 轮子控件 
+![](https://github.com/janedler/JWheel/raw/master/screen_1.png) 
 
-![](https://github.com/janedler/JWheel/raw/master/screen_1.jpg) 
+#### 自定义扩展方法 具体可以参考RegionTree、CustomTree
+##### 继承WheelTree
+```java
+/**
+     * 构建轮子树的结构 必须实现
+     *
+     * @return
+     */
+    public abstract List<WheelNode> buildTree();
 
-#### 使用方法
-##### 在启动页请先调用 
-```java
-JTimeUtil.instance.initTime(this);
+    /**
+     * 每个节点比较算法 必须实现
+     *
+     * @return
+     */
+    public abstract boolean compare(WheelNode node, WheelNode findNode);
+
+
+    /**
+     * 点击返回按钮的时候返回数据 必须实现
+     * @param lastNode 表示最后一个子节点
+     * @return
+     */
+    public abstract String reslultSure(WheelNode lastNode);
+
 ```
-##### 1.建议使用此方法 直接返回本地缓存通过计算后的时间
+
+#### 使用方法 具体可以参考MainActivity
+
+##### 1.通过WheelUtil工具类调用轮子控件
 ```java
-JTimeUtil.instance.getCurrentTimeMillis(context);
+WheelUtil wheel = new WheelUtil(this, new WheelUtil.WeelUtilCallBack() {
+           //取消
+            @Override
+            public void onBackClick() {
+                Toast.makeText(this,"BackClick",Toast.LENGTH_SHORT).show();
+            }
+            //确定
+            @Override
+            public void onSureClick(String reslult) {
+                Toast.makeText(this,reslult,Toast.LENGTH_SHORT).show();
+            }
+            //轮子关闭回调
+            @Override
+            public void onDismiss() {
+            }
+        });
 ```
-##### 2.阻塞式 时间过长可能会爆出ANR
+##### 2.关闭轮子控件
 ```java
-JTimeUtil.instance.getSyncCurrentTimeMillis(context);
+wheel.dismiss();
 ```
-##### 3.异步式 异步返回当前网络时间戳
+##### 3.轮子定位 (api定位，可以进行扩展) 
 ```java
-JTimeUtil.instance.getAsynCurrentTimeMillis(context,new JTimeUtil.TimeCallBack(){
-                    @Override
-                    public void onTimeCallBack(long time) {
-                        
-                    }
-                });
+/**
+     * @param col 列
+     * @param row 行
+     */
+wheel.selectItem(int row, int col);
 ```
